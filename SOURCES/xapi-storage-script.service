@@ -7,6 +7,10 @@ Wants=message-switch.service syslog.target
 Environment=OCAMLRUNPARAM=b
 EnvironmentFile=-/etc/sysconfig/xapi-storage-script
 ExecStart=/usr/sbin/xapi-storage-script $XAPI_STORAGE_SCRIPT_OPTIONS
+# restart but fail if more than 5 failures in 30s
+Restart=on-failure
+StartLimitBurst=5
+StartLimitInterval=30s
 
 [Install]
 WantedBy=multi-user.target

@@ -1,11 +1,11 @@
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
-Version: 0.21.0
+Version: 0.26.0
 Release: 1%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.21.0&format=tar.gz&prefix=xapi-storage-script-0.21.0#/xapi-storage-script-0.21.0.tar.gz) = b257aec65cef5254956c79437a36cfbd8de59277
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.26.0&format=tar.gz&prefix=xapi-storage-script-0.26.0#/xapi-storage-script-0.26.0.tar.gz) = b9bb28245b2fc30b175ca7a033c64def47b6515f
 Source1: xapi-storage-script.service
 Source2: xapi-storage-script-sysconfig
 Source3: xapi-storage-script-conf.in
@@ -63,6 +63,35 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Fri Jul 13 2018 Christian Lindig <christian.lindig@citrix.com> - 0.26.0-1
+- CA-293335: Don't add extra sr_uuid to device_config on SR.attach
+- Only run SR.create compat fallback for PVS version of SM scripts
+
+* Thu Jun 28 2018 Christian Lindig <christian.lindig@citrix.com> - 0.25.0-1
+- CA-292370: Remove uri from returned plugin configuration info
+- CP-27591: Convert to new xapi-storage interface based on ocaml-rpc's IDL
+- CP-27591: Make script names case-insensitive
+- CP-28132: Update after Datapath.attach changes
+- CP-28132: Remove unused code for handling VDI.attach
+- CP-28132: Add 5.0 to supported API versions
+- CP-28546: Move everything from v4 to v5
+- CP-28546: Remove 4.0 from supported_api_versions
+- CP-28546: check that datapath plugin version is compatible
+- CP-28132: remove domain_uuid from attach response
+- Add more type annotations
+- Don't remove uri key from device_config in compat_uri
+
+* Fri Jun 15 2018 Christian Lindig <christian.lindig@citrix.com> - 0.24.0-1
+- CA-290241: save VDI's is_a_snapshot & snapshot_of fields
+
+* Mon May 14 2018 Christian Lindig <christian.lindig@citrix.com> - 0.23.0-1
+- jbuild: update rpc dependency name
+- opam: update dependencies
+
+* Thu May 10 2018 Christian Lindig <christian.lindig@citrix.com> - 0.22.0-1
+- CP-26583: Update Rrdd references to use PPX port
+- CP-26583: Add Rpc_async module to jbuild for PPX port
+
 * Tue Apr 10 2018 Christian Lindig <christian.lindig@citrix.com> - 0.21.0-1
 - CA-283693: Store & return correct snapshot_time for VDIs
 - Update .travis.yml
