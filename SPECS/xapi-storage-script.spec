@@ -1,14 +1,18 @@
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
-Version: 0.26.0
+Version: 0.31.0
 Release: 1%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/xapi-storage-script
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/%{name}/archive?at=v%{version}&format=tar.gz&prefix=%{name}-%{version}#/%{name}-%{version}.tar.gz
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.26.0&format=tar.gz&prefix=xapi-storage-script-0.26.0#/xapi-storage-script-0.26.0.tar.gz) = b9bb28245b2fc30b175ca7a033c64def47b6515f
-Source1: xapi-storage-script.service
-Source2: xapi-storage-script-sysconfig
-Source3: xapi-storage-script-conf.in
+
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.31.0&format=tar.gz&prefix=xapi-storage-script-0.31.0#/xapi-storage-script-0.31.0.tar.gz
+Source1: SOURCES/xapi-storage-script/xapi-storage-script.service
+Source2: SOURCES/xapi-storage-script/xapi-storage-script-sysconfig
+Source3: SOURCES/xapi-storage-script/xapi-storage-script-conf.in
+
+
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.31.0&format=tar.gz&prefix=xapi-storage-script-0.31.0#/xapi-storage-script-0.31.0.tar.gz) = 9d874888aa76d3c6934cd39db5f435d3f0dfae44
+
 BuildRequires: ocaml-ocamldoc
 BuildRequires: xs-opam-repo
 BuildRequires: ocaml-xcp-idl-devel
@@ -63,6 +67,22 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Tue Dec 04 2018 Christian Lindig <christian.lindig@citrix.com> - 0.31.0-1
+- Moved from jbuilder to dune and deprecated xcp in favour of xapi-idl.
+
+* Fri Nov 16 2018 Christian Lindig <christian.lindig@citrix.com> - 0.30.0-1
+- New ocaml-rpc
+
+* Thu Nov 01 2018 Christian Lindig <christian.lindig@citrix.com> - 0.29.0-1
+- Update opam files for Opam 2
+
+* Mon Sep 24 2018 Christian Lindig <christian.lindig@citrix.com> - 0.28.0-1
+- CP-27110: Storage PPX
+
+* Fri Aug 31 2018 Christian Lindig <christian.lindig@citrix.com> - 0.27.0-1
+- Simplify PPX processing in jbuild file
+- Use OCaml 4.06 for Travis
+
 * Fri Jul 13 2018 Christian Lindig <christian.lindig@citrix.com> - 0.26.0-1
 - CA-293335: Don't add extra sr_uuid to device_config on SR.attach
 - Only run SR.create compat fallback for PVS version of SM scripts
