@@ -1,17 +1,17 @@
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
-Version: 0.31.0
-Release: 1%{?dist}
+Version: 0.33.0
+Release: 2%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.31.0&format=tar.gz&prefix=xapi-storage-script-0.31.0#/xapi-storage-script-0.31.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.33.0&format=tar.gz&prefix=xapi-storage-script-0.33.0#/xapi-storage-script-0.33.0.tar.gz
 Source1: SOURCES/xapi-storage-script/xapi-storage-script.service
 Source2: SOURCES/xapi-storage-script/xapi-storage-script-sysconfig
 Source3: SOURCES/xapi-storage-script/xapi-storage-script-conf.in
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.31.0&format=tar.gz&prefix=xapi-storage-script-0.31.0#/xapi-storage-script-0.31.0.tar.gz) = 9d874888aa76d3c6934cd39db5f435d3f0dfae44
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.33.0&format=tar.gz&prefix=xapi-storage-script-0.33.0#/xapi-storage-script-0.33.0.tar.gz) = 91a0d426c252b6f1a52bb6fb2e2a2ce59c5143e0
 
 BuildRequires: ocaml-ocamldoc
 BuildRequires: xs-opam-repo
@@ -22,6 +22,7 @@ BuildRequires: systemd
 BuildRequires: xapi-storage
 BuildRequires: python
 
+Requires:       jemalloc
 %{?systemd_requires}
 
 %description
@@ -67,6 +68,16 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Fri Aug 23 2019 Edwin Török <edvin.torok@citrix.com> - 0.33.0-2
+- bump packages after xs-opam update
+
+* Fri Aug 02 2019 Christian Lindig <christian.lindig@citrix.com> - 0.33.0-1
+- CP-31450: Add domid to Datapath.attach
+
+* Tue Jul 30 2019 Christian Lindig <christian.lindig@citrix.com> - 0.32.0-1
+- Use syslog from xcp-idl for now
+- Simplify travis and update to 4.07
+
 * Tue Dec 04 2018 Christian Lindig <christian.lindig@citrix.com> - 0.31.0-1
 - Moved from jbuilder to dune and deprecated xcp in favour of xapi-idl.
 
