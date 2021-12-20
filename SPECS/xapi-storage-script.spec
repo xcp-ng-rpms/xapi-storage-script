@@ -1,17 +1,17 @@
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
-Version: 0.34.0
-Release: 1%{?dist}
+Version: 0.34.1
+Release: 2%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.0&format=tar.gz&prefix=xapi-storage-script-0.34.0#/xapi-storage-script-0.34.0.tar.gz
+Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.1&format=tar.gz&prefix=xapi-storage-script-0.34.1#/xapi-storage-script-0.34.1.tar.gz
 Source1: SOURCES/xapi-storage-script/xapi-storage-script.service
 Source2: SOURCES/xapi-storage-script/xapi-storage-script-sysconfig
 Source3: SOURCES/xapi-storage-script/xapi-storage-script-conf.in
 
 
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.0&format=tar.gz&prefix=xapi-storage-script-0.34.0#/xapi-storage-script-0.34.0.tar.gz) = b200a06d1dfb00564b6cb4c8cc8e45ecebef841f
+Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.1&format=tar.gz&prefix=xapi-storage-script-0.34.1#/xapi-storage-script-0.34.1.tar.gz) = 7610d64244fc7216a92417e914585f2333da592c
 
 BuildRequires: ocaml-ocamldoc
 BuildRequires: xs-opam-repo
@@ -68,6 +68,15 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 0.34.1-2
+- Bump package after xs-opam update
+
+* Mon Aug 23 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 0.34.1-1
+- CP-38064: compatibility with Core 0.13
+
+* Tue Jul 13 2021 Edwin Török <edvin.torok@citrix.com> - 0.34.0-2
+- bump packages after xs-opam update
+
 * Mon Mar 23 2020 Christian Lindig <christian.lindig@citrix.com> - 0.34.0-1
 - Fix Stdlib warning
 - Fix Travis
