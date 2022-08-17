@@ -1,7 +1,7 @@
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
 Version: 0.34.1
-Release: 2%{?dist}
+Release: 2.1%{?dist}
 License: LGPL+linking exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 
@@ -68,6 +68,9 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Wed Aug 17 2022 Gael Duperrey <gduperrey@vates.fr> - 0.34.1-2.1
+- Rebuild for updated ocaml-xcp-idl from XS82ECU1011
+
 * Mon Sep 27 2021 Pau Ruiz Safont <pau.safont@citrix.com> - 0.34.1-2
 - Bump package after xs-opam update
 
