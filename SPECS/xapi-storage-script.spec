@@ -1,18 +1,15 @@
+%global package_speccommit a509568573bfb03b491aaac218964cb95625e7bb
+%global package_srccommit v0.34.1
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
 Version: 0.34.1
-Release: 2.1%{?dist}
-License: LGPL+linking exception
+Release: 8.1%{?xsrel}%{?dist}
+License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/xapi-storage-script
-
-Source0: https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.1&format=tar.gz&prefix=xapi-storage-script-0.34.1#/xapi-storage-script-0.34.1.tar.gz
-Source1: SOURCES/xapi-storage-script/xapi-storage-script.service
-Source2: SOURCES/xapi-storage-script/xapi-storage-script-sysconfig
-Source3: SOURCES/xapi-storage-script/xapi-storage-script-conf.in
-
-
-Provides: gitsha(https://code.citrite.net/rest/archive/latest/projects/XSU/repos/xapi-storage-script/archive?at=v0.34.1&format=tar.gz&prefix=xapi-storage-script-0.34.1#/xapi-storage-script-0.34.1.tar.gz) = 7610d64244fc7216a92417e914585f2333da592c
-
+Source0: xapi-storage-script-0.34.1.tar.gz
+Source1: xapi-storage-script.service
+Source2: xapi-storage-script-sysconfig
+Source3: xapi-storage-script-conf.in
 BuildRequires: ocaml-ocamldoc
 BuildRequires: xs-opam-repo
 BuildRequires: ocaml-xcp-idl-devel
@@ -38,7 +35,7 @@ sed -e "s|@LIBEXECDIR@|%{_libexecdir}|g" %{SOURCE3} > xapi-storage-script.conf
 %check
 # they are marked as executable in git, seem to loose executable bit after patchqueue from PINning
 chmod +x test/volume/*/*.py
-make test 
+make test
 
 %install
 mkdir -p %{buildroot}%{_libexecdir}/xapi-storage-script/volume
@@ -68,6 +65,22 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Wed Aug 09 2023 Gael Duperrey <gduperrey@vates.fr> - 0.34.1-8.1
+- Sync with hotfix XS82ECU1040
+- *** Upstream changelog ***
+- * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 0.34.1-8
+- - Bump release and rebuild
+- * Mon Jun 19 2023 Christian Lindig <christian.lindig@citrix.com> - 0.34.1-7
+- - Bump release and rebuild
+- * Thu Jun 08 2023 Christian Lindig <christian.lindig@citrix.com> - 0.34.1-6
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 0.34.1-5
+- - Bump release and rebuild
+- * Fri May 12 2023 Christian Lindig <christian.lindig@citrix.com> - 0.34.1-4
+- - Bump release and rebuild
+- * Thu Feb 23 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 0.34.1-3
+- - Change license to match source repo
+
 * Wed Aug 17 2022 Gael Duperrey <gduperrey@vates.fr> - 0.34.1-2.1
 - Rebuild for updated ocaml-xcp-idl from XS82ECU1011
 
