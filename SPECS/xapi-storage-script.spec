@@ -1,9 +1,9 @@
-%global package_speccommit a509568573bfb03b491aaac218964cb95625e7bb
+%global package_speccommit 16cdde5c002046f3f1ebe020277da7702d3e0c43
 %global package_srccommit v0.34.1
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
 Version: 0.34.1
-Release: 8%{?xsrel}%{?dist}
+Release: 9%{?xsrel}%{?dist}
 License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 Source0: xapi-storage-script-0.34.1.tar.gz
@@ -65,6 +65,9 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Mon Oct 02 2023 Pau Ruiz Safont <pau.ruizsafont@cloud.com> - 0.34.1-9
+- Bump release and rebuild
+
 * Thu Jul 20 2023 Rob Hoes <rob.hoes@citrix.com> - 0.34.1-8
 - Bump release and rebuild
 
