@@ -1,9 +1,9 @@
-%global package_speccommit 16cdde5c002046f3f1ebe020277da7702d3e0c43
+%global package_speccommit dd9d5044fbf951b8be6b86220cb442bd7a8315db
 %global package_srccommit v0.34.1
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
 Version: 0.34.1
-Release: 9.1%{?xsrel}%{?dist}
+Release: 16.1%{?xsrel}%{?dist}
 License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 Source0: xapi-storage-script-0.34.1.tar.gz
@@ -65,6 +65,24 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Mon Jun 03 2024 Gael Duperrey <gduperrey@vates.fr> - 0.34.1-16.1
+- Sync with hotfix XS82ECU1064
+- *** Upstream changelog ***
+- * Fri Mar 08 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-16
+- - Bump release and rebuild
+- * Wed Mar 06 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-15
+- - Bump release and rebuild
+- * Tue Mar 05 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-14
+- - Bump release and rebuild
+- * Fri Nov 03 2023 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-13
+- - Bump release and rebuild
+- * Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-12
+- - Bump release and rebuild
+- * Tue Oct 24 2023 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-11
+- - Bump release and rebuild
+- * Wed Oct 18 2023 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-10
+- - Bump release and rebuild
+
 * Fri Oct 13 2023 Samuel Verschelde <stormi-xcp@ylix.fr> - 0.34.1-9.1
 - Rebuild after sync with hotfix XS82ECU1049
 - No source changes: only rebuild for dependencies
