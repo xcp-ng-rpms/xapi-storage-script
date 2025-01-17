@@ -1,9 +1,9 @@
-%global package_speccommit 2477b2f5e0ad091fd328699c5262775c8225ebc2
+%global package_speccommit 57783a046735579965ba7cf75278c11595da9de6
 %global package_srccommit v0.34.1
 Summary: Xapi storage script plugin server
 Name:    xapi-storage-script
 Version: 0.34.1
-Release: 18.1%{?xsrel}%{?dist}
+Release: 21.1%{?xsrel}%{?dist}
 License: LGPL-2.1-or-later WITH OCaml-LGPL-linking-exception
 URL:     https://github.com/xapi-project/xapi-storage-script
 Source0: xapi-storage-script-0.34.1.tar.gz
@@ -65,6 +65,17 @@ make install BINDIR=%{buildroot}%{_sbindir} MANDIR=%{buildroot}%{_mandir}
 %config(noreplace) %{_sysconfdir}/xapi-storage-script.conf
 
 %changelog
+* Thu Jan 16 2025 Gael Duperrey <gduperrey@vates.tech> - 0.34.1-21.1
+- Rebuild after sync with hotfix XS82ECU1080
+- No source changes: only rebuild for dependencies
+- *** Upstream changelog ***
+- * Fri Dec 13 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-21
+- - Bump release and rebuild
+- * Thu Dec 12 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-20
+- - Bump release and rebuild
+- * Mon Dec 09 2024 Christian Lindig <christian.lindig@cloud.com> - 0.34.1-19
+- - Bump release and rebuild
+
 * Thu Oct 24 2024 Gael Duperrey <gduperrey@vates.tech> - 0.34.1-18.1
 - Rebuild after sync with hotfix XS82ECU1074
 - No source changes: only rebuild for dependencies
